@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { createRoot } from 'react-dom/client';
 
 // style.scss
@@ -20,6 +21,7 @@ import '@fontsource/public-sans/700.css';
 import App from './App';
 import { ConfigProvider } from 'contexts/ConfigContext';
 import reportWebVitals from './reportWebVitals';
+import { LaptopProvider } from './contexts/LaptopContext';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -28,7 +30,9 @@ const root = createRoot(container);
 
 root.render(
   <ConfigProvider>
+    <LaptopProvider>
     <App />
+    </LaptopProvider>
   </ConfigProvider>
 );
 

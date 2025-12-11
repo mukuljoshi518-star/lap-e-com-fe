@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import { Layout, Menu, Input, Button, Card, Tag, Badge, Drawer, Divider, Typography, Row, Col, Space } from 'antd';
+import { Layout, Menu, Input, Button, Card, Tag, Drawer, Divider, Typography, Row, Col, Space } from 'antd';
 
 import { ShoppingCart, Search, Menu as MenuIcon, X, Star, Heart } from 'lucide-react';
 
@@ -79,8 +79,6 @@ export default function LaptopStore() {
 
   return (
     <Layout style={{ background: '#f5f5f5' }}>
-      {/* HEADER */}
-
       {/* MOBILE MENU */}
       <Drawer title="Menu" placement="left" open={mobileMenu} onClose={() => setMobileMenu(false)}>
         <Menu
@@ -92,76 +90,85 @@ export default function LaptopStore() {
             { key: '4', label: 'Support' }
           ]}
         />
-
         <Input placeholder="Search laptops..." prefix={<Search size={18} />} style={{ marginTop: 20 }} />
       </Drawer>
 
-      {/* CATEGORY FILTER */}
-      <Content style={{ maxWidth: 1300, margin: '0 auto', padding: 20 }}>
-        <Space wrap size="small" style={{ marginBottom: 20 }}>
-          {categories.map((c) => (
-            <Button key={c} type={selectedCategory === c ? 'primary' : 'default'} shape="round" onClick={() => setSelectedCategory(c)}>
-              {c}
-            </Button>
-          ))}
-        </Space>
+      {/* CONTENT AREA */}
+      <Content
+        style={{
+          width: '100%',
+          padding: 20,
+          display: 'flex',
+          justifyContent: 'center'
+        }}
+      >
+        <div style={{ width: '100%', maxWidth: 1300 }}>
+          {/* CATEGORY FILTER */}
+          <Space wrap size="small" style={{ marginBottom: 20 }}>
+            {categories.map((c) => (
+              <Button key={c} type={selectedCategory === c ? 'primary' : 'default'} shape="round" onClick={() => setSelectedCategory(c)}>
+                {c}
+              </Button>
+            ))}
+          </Space>
 
-        {/* PRODUCT GRID */}
-        <Row gutter={[20, 20]}>
-          {filtered.map((item) => (
-            <Col xs={24} sm={12} md={8} lg={6} key={item.id}>
-              <Card
-                hoverable
-                cover={
-                  <div style={{ position: 'relative' }}>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      style={{
-                        width: '100%',
-                        height: 200,
-                        objectFit: 'cover'
-                      }}
-                    />
-                    <Button
-                      type="text"
-                      shape="circle"
-                      style={{
-                        position: 'absolute',
-                        top: 10,
-                        right: 10,
-                        background: '#fff'
-                      }}
-                      icon={<Heart size={18} />}
-                    />
-                  </div>
-                }
-              >
-                <Space>
-                  <Star size={16} color="#f7d038" />
-                  <Text>{item.rating}</Text>
-                  <Tag>{item.category}</Tag>
-                </Space>
+          {/* PRODUCT GRID */}
+          <Row gutter={[20, 20]} justify="start">
+            {filtered.map((item) => (
+              <Col xs={24} sm={12} md={8} lg={6} key={item.id}>
+                <Card
+                  hoverable
+                  cover={
+                    <div style={{ position: 'relative' }}>
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        style={{
+                          width: '100%',
+                          height: 200,
+                          objectFit: 'cover'
+                        }}
+                      />
+                      <Button
+                        type="text"
+                        shape="circle"
+                        style={{
+                          position: 'absolute',
+                          top: 10,
+                          right: 10,
+                          background: '#fff'
+                        }}
+                        icon={<Heart size={18} />}
+                      />
+                    </div>
+                  }
+                >
+                  <Space>
+                    <Star size={16} color="#f7d038" />
+                    <Text>{item.rating}</Text>
+                    <Tag>{item.category}</Tag>
+                  </Space>
 
-                <Title level={5} style={{ marginTop: 10 }}>
-                  {item.name}
-                </Title>
-
-                <Text type="secondary">{item.specs}</Text>
-
-                <div style={{ marginTop: 12, display: 'flex', justifyContent: 'space-between' }}>
-                  <Title level={4} style={{ margin: 0, color: '#1677ff' }}>
-                    ${item.price}
+                  <Title level={5} style={{ marginTop: 10 }}>
+                    {item.name}
                   </Title>
 
-                  <Button type="primary" onClick={() => addToCart(item)}>
-                    Add to Cart
-                  </Button>
-                </div>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+                  <Text type="secondary">{item.specs}</Text>
+
+                  <div style={{ marginTop: 12, display: 'flex', justifyContent: 'space-between' }}>
+                    <Title level={4} style={{ margin: 0, color: '#1677ff' }}>
+                      ${item.price}
+                    </Title>
+
+                    <Button type="primary" onClick={() => addToCart(item)}>
+                      Add to Cart
+                    </Button>
+                  </div>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </div>
       </Content>
 
       {/* CART DRAWER */}

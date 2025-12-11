@@ -6,21 +6,22 @@ export const rootPaths = {
 };
 
 export const paths = {
-  // Dashboard
   dashboard: '/',
   dashboardDefault: '/dashboard/default',
+  DashboardComDefault: '/ecom-dashboard',
+  laptops: '/laptops',
 
-  // Pages
   typography: '/typography',
   color: '/color',
   shadow: '/shadow',
   sample: '/sample-page',
 
-  // Auth
   login: '/authentication/login',
   register: '/authentication/register',
   forgotPassword: '/authentication/forgot-password',
 
-  // Errors
   error404: '/error/404'
 };
+
+// ✅ Add this
+export default paths;

@@ -1,9 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { lazy } from 'react';
 
 // project imports
 import Loadable from 'components/Loadable';
 import DashboardLayout from 'layout/Dashboard';
-import { paths } from './path';
+import paths from './path';
 
 // render- Dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/default')));
@@ -23,11 +24,11 @@ const MainRoutes = {
   element: <DashboardLayout />,
   children: [
     {
-      path: paths.dashboardDefault.replace('/', ''),
+      path: paths.dashboardDefault,
       element: <DashboardDefault />
     },
     {
-      path: 'dashboard',
+      path: paths.dashboardDefault,
       children: [
         {
           path: paths.dashboardDefault.replace('/', ''),
@@ -35,6 +36,15 @@ const MainRoutes = {
         }
       ]
     },
+    {
+  // path: 'admin',
+  // children: [
+  //   {
+  //     path: 'dashboard',
+  //     element: <AdminDashboard />
+  //   }
+  // ]
+},
     {
       path: 'typography',
       element: <Typography />
