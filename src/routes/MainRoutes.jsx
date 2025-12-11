@@ -4,11 +4,7 @@ import { lazy } from 'react';
 // project imports
 import Loadable from 'components/Loadable';
 import DashboardLayout from 'layout/Dashboard';
-<<<<<<< HEAD
-import { paths } from './path';
-=======
-import AdminDashboard from '../layout/Dashboard/AdminDashboard';
->>>>>>> a7ddd76bce7ded4db40972bd14b301deebf619eb
+import paths from './path';
 
 // render- Dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/default')));
@@ -32,7 +28,7 @@ const MainRoutes = {
       element: <DashboardDefault />
     },
     {
-      path: 'dashboard',
+      path: paths.dashboardDefault,
       children: [
         {
           path: paths.dashboardDefault.replace('/', ''),
@@ -41,13 +37,13 @@ const MainRoutes = {
       ]
     },
     {
-  path: 'admin',
-  children: [
-    {
-      path: 'dashboard',
-      element: <AdminDashboard />
-    }
-  ]
+  // path: 'admin',
+  // children: [
+  //   {
+  //     path: 'dashboard',
+  //     element: <AdminDashboard />
+  //   }
+  // ]
 },
     {
       path: 'typography',

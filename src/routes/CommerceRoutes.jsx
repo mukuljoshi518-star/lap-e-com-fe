@@ -13,7 +13,7 @@ const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')))
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
-  path: paths.DashboardComDefault,
+  path: paths.dashboard,
   element: <DashboardLayout />,
   children: [
     {
