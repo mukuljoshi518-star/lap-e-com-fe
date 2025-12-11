@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-
+import { paths } from './path';
 // project imports
 import Loadable from 'components/Loadable';
 
@@ -10,21 +10,20 @@ const RegisterPage = Loadable(lazy(() => import('pages/auth/Register')));
 // ==============================|| AUTH ROUTING ||============================== //
 
 const LoginRoutes = {
-  path: '/',
+  path: '/authentication',
   children: [
     {
-      path: '/',
-      children: [
-        {
-          path: '/login',
-          element: <LoginPage />
-        },
-        {
-          path: '/register',
-          element: <RegisterPage />
-        }
-      ]
-    }
+      path: paths.login.replace('/authentication/', ''),
+      element: <LoginPage />
+    },
+    {
+      path: paths.register.replace('/authentication/', ''),
+      element: <RegisterPage />
+    },
+    // {
+    //   path: paths.forgotPassword.replace('/authentication/', ''),
+    //   element: <ForgotPassword />
+    // }
   ]
 };
 
