@@ -1,54 +1,43 @@
 import { lazy } from 'react';
-
-// project imports
 import Loadable from 'components/Loadable';
-import DashboardLayout from 'layout/Dashboard';
+import DashboardLayout from 'layout/ComDashboard';
 import { paths } from './path';
 
-// render- Dashboard
-const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/default')));
-// const DashboardComDefault = Loadable(lazy(() => import('pages/ecom-dashboard/index.jsx')));
-// render - color
+// Lazy pages
+const DashboardComDefault = Loadable(lazy(() => import('pages/ecom-dashboard/index.jsx')));
 const Color = Loadable(lazy(() => import('pages/component-overview/color')));
 const Typography = Loadable(lazy(() => import('pages/component-overview/typography')));
 const Shadow = Loadable(lazy(() => import('pages/component-overview/shadows')));
-
-// render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
-  path: paths.dashboardDefault,
+  path: paths.DashboardComDefault,
   element: <DashboardLayout />,
   children: [
     {
-      path: paths.dashboardDefault.replace('/', ''),
-      element: <DashboardDefault />
+      path: paths.dashboard,
+      element: <DashboardComDefault />
     },
     {
-      path: 'dashboard',
-      children: [
-        {
-          path: paths.dashboardDefault.replace('/', ''),
-          element: <DashboardDefault />
-        }
-      ]
+      path: paths.dashboardDefault,
+      element: <DashboardComDefault />
     },
     {
-      path: 'typography',
+      path: paths.typography,
       element: <Typography />
     },
     {
-      path: 'color',
+      path: paths.color,
       element: <Color />
     },
     {
-      path: 'shadow',
+      path: paths.shadow,
       element: <Shadow />
     },
     {
-      path: 'sample-page',
+      path: paths.sample,
       element: <SamplePage />
     }
   ]
