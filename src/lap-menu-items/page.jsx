@@ -1,5 +1,6 @@
 // assets
 import { LoginOutlined, ProfileOutlined } from '@ant-design/icons';
+import { paths } from '../routes/path';
 
 // icons
 const icons = {
@@ -18,7 +19,7 @@ const pages = {
       id: 'login1',
       title: 'Login',
       type: 'item',
-      url: '/login',
+      url: paths.login,
       icon: icons.LoginOutlined,
       target: true
     },
@@ -26,10 +27,18 @@ const pages = {
       id: 'register1',
       title: 'Register',
       type: 'item',
-      url: '/register',
+      url: paths.register,
       icon: icons.ProfileOutlined,
       target: true
-    }
+    },
+     {
+      id: 'admin',
+      title: 'Login Admin',
+      type: 'item',
+      url: paths.dashboardDefault,
+      icon: icons.LoginOutlined,
+      target: true
+    },
   ]
 };
 
