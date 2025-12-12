@@ -1,7 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import DashboardLayout from 'layout/ComDashboard';
 import { paths } from './path';
+import AdminDashboard from '../layout/Dashboard/AdminDashboard';
 
 // Lazy pages
 const DashboardComDefault = Loadable(lazy(() => import('pages/ecom-dashboard/index.jsx')));
@@ -23,6 +25,10 @@ const MainRoutes = {
     {
       path: paths.dashboardDefault,
       element: <DashboardComDefault />
+    },
+    {
+      path: paths.AdminDashboard,
+      element: <AdminDashboard />
     },
     {
       path: paths.typography,

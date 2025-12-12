@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // assets
 import { LoginOutlined, ProfileOutlined } from '@ant-design/icons';
 import { paths } from '../routes/path';
@@ -35,9 +36,9 @@ const pages = {
       id: 'admin',
       title: 'Login Admin',
       type: 'item',
-      url: paths.dashboardDefault,
+      url: paths.AdminDashboard,
       icon: icons.LoginOutlined,
-      target: true
+      target: false
     },
   ]
 };

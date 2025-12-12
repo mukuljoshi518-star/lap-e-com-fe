@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { Layout, Menu, Input, Button, Card, Tag, Drawer, Divider, Typography, Row, Col, Space } from 'antd';

@@ -5,6 +5,7 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import DashboardLayout from 'layout/Dashboard';
 import paths from './path';
+import AdminDashboard from '../layout/Dashboard/AdminDashboard';
 
 // render- Dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/default')));
@@ -37,13 +38,13 @@ const MainRoutes = {
       ]
     },
     {
-  // path: 'admin',
-  // children: [
-  //   {
-  //     path: 'dashboard',
-  //     element: <AdminDashboard />
-  //   }
-  // ]
+  path: 'admin',
+  children: [
+    {
+      path: 'admin-dashboard',
+      element: <AdminDashboard />
+    }
+  ]
 },
     {
       path: 'typography',

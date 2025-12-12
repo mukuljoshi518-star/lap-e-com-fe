@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const rootPaths = {
   root: '/',
   pageRoot: '/pages',
@@ -9,6 +10,7 @@ export const paths = {
   dashboard: '/',
   dashboardDefault: '/dashboard/default',
   DashboardComDefault: '/ecom-dashboard',
+  AdminDashboard : '/admin-dashboard',
   laptops: '/laptops',
 
   typography: '/typography',

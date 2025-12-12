@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { lazy } from 'react';
 import { paths } from './path';
 // project imports
